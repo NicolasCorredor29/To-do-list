@@ -1,6 +1,8 @@
+//Se traen los datos con los que voy a trabajar
 const formulario = document.getElementById("formulario");
 const cards = document.getElementById("cards_content");
 
+//Agrego el evenListener al botón de mi formulario
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
   //Creación de la estructura de mi tarjeta
@@ -19,7 +21,7 @@ formulario.addEventListener("submit", (event) => {
   card_content.className = "card_content";
   card_top.append(card_title);
   card_bot.append(card_content, card_date);
-
+  //llamo a la función que agrega a mi card los botones eliminar y editar
   const { botonEditar, botonEliminar } = deleteandedit();
   const card_top2 = document.createElement("div");
   card_top2.id = "card_top2";
@@ -37,6 +39,26 @@ formulario.addEventListener("submit", (event) => {
   console.log(card);
   cards.append(card);
 });
+
+//Agrego el evento click a mi contenedor de cartas
+cards.addEventListener("click", (event) => {
+  event.preventDefault();
+  //Identifico si el elemento clickeado en mi contenedor fue en el botón de edición o en el de eliminar
+  if (event.target.closest(".btn_eliminar")) {
+    const aux = event.target.closest(".card");
+    deleteTask(aux);
+  } else if (event.target.classList.contains("btn_editar")) {
+    const aux = event.target.closest(".card");
+    editTask(event.target.parentElement);
+  }
+});
+
+//Función que elimina el elemento que se le envie
+function deleteTask(taskItem) {
+  if (confirm("¿Esta segur@ de borrar este elemento ?")) {
+    taskItem.remove();
+  }
+}
 
 function deleteandedit() {
   //creación del botón editar
