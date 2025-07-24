@@ -49,12 +49,24 @@ footer {
 
 .github {
   color: white;
+  transition: color 0.4s;
+}
+.github:hover {
+  color: rgb(218, 94, 77);
 }
 .linkedin {
   color: white;
+  transition: color 0.4s;
+}
+.linkedin:hover {
+  color: rgb(218, 94, 77);
 }
 .mail {
   color: white;
+  transition: color 0.4s;
+}
+.mail:hover {
+  color: rgb(218, 94, 77);
 }
 .main_container {
   padding: 1em;
@@ -127,6 +139,10 @@ footer {
   height: 14em;
   border-radius: 10px;
   overflow: hidden;
+  transition: transform 0.5s;
+}
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card_top {
@@ -165,9 +181,17 @@ footer {
   padding: 0.2em;
   border-radius: 50%;
   color: green;
+  transition: background-color 0.4s;
+}
+.btn_editar:hover {
+  background-color: rgb(70, 223, 70);
 }
 .btn_eliminar {
   padding: 0.2em;
   border-radius: 50%;
   color: red;
+  transition: background-color 0.4s;
+}
+.btn_eliminar:hover {
+  background-color: rgb(231, 92, 92);
 }
